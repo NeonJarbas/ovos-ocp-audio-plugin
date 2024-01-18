@@ -1,5 +1,9 @@
 # Changelog
 
+## [V0.0.6a10](https://github.com/NeonJarbas/ovos-ocp-audio-plugin/tree/V0.0.6a10) (2023-11-18)
+
+[Full Changelog](https://github.com/NeonJarbas/ovos-ocp-audio-plugin/compare/V0.0.2a2...V0.0.6a10)
+
 ## [V0.0.2a2](https://github.com/NeonJarbas/ovos-ocp-audio-plugin/tree/V0.0.2a2) (2022-04-20)
 
 [Full Changelog](https://github.com/NeonJarbas/ovos-ocp-audio-plugin/compare/V0.0.2a1...V0.0.2a2)
