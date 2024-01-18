@@ -8,7 +8,7 @@ from ovos_utils.system import module_property
 from ovos_plugin_manager.ocp import StreamHandler
 from ovos_plugin_common_play.ocp.status import TrackState, PlaybackType
 from ovos_ocp_files_plugin.plugin import OCPFilesMetadataExtractor
-
+from ovos_utils.ocp import find_mime
 _plugins = None
 
 
@@ -25,21 +25,17 @@ def is_qtav_available():
            exists("/usr/lib/libQtAV.so")
 
 
-def find_mime(uri):
-    """ Determine mime type. """
-    mime = mimetypes.guess_type(uri)
-    if mime:
-        return mime
-    else:
-        return None
-
-
 def available_extractors() -> List[str]:
     """
     Get a list of supported Stream Extractor Identifiers. Note that these look
     like but are not URI schemes.
     @return: List of supported SEI prefixes
     """
+    try:
+        from ovos_plugin_manager.ocp import available_extractors as _ax
+        return _ax()
+    except ImportError:
+        LOG.warning("please install/update ovos_plugin_manager")
     return ["/", "http:", "https:", "file:"] + \
            [f"{sei}//" for sei in _ocp_plugins().supported_seis]
 
